@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:i18n="clr-namespace:ConferenceApp.Localization; assembly=ConferenceApp"
+             x:Class="ConferenceApp.Views.MainPageUser">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Share Conference"  Order="Secondary" ></ToolbarItem>
+        <ToolbarItem Text="Log Out" Order="Secondary" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#00aff0</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+
+
+        <StackLayout>
+           <Label HeightRequest="110" 
+                   x:Name="_ConfName"
+                          HorizontalOptions="FillAndExpand" 
+                          Text="{Binding .}" 
+                          BackgroundColor="{StaticResource primary}"
+                          TextColor="White" 
+                          FontSize="40" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+          
+
+
+            <StackLayout Orientation="Horizontal" >
+                <Button Text="{i18n:Translate Share}" Clicked="onShare" BackgroundColor='{StaticResource primary}'  TextColor="White" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="{i18n:Translate Logout}" BackgroundColor='{StaticResource primary}' Clicked="onLogout"  TextColor="White" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+            <ActivityIndicator Color="{StaticResource primary}" x:Name="_loading" />
+            <StackLayout Orientation="Horizontal">
+                <Entry Placeholder="{i18n:Translate AddQuestion}" HorizontalOptions="FillAndExpand"    x:Name="_EntQuestion"></Entry>
+                <Button Text="{i18n:Translate AddButton}" HorizontalOptions="FillAndExpand" Clicked="onQuestionAdd"  TextColor="White" WidthRequest="50" BackgroundColor="{StaticResource primary}"></Button>
+            </StackLayout>
+
+
+
+
+            <Label Text="{i18n:Translate Questions}" 
+                       FontSize="30"
+                        HorizontalOptions="Center" 
+                        TextColor="{StaticResource primary}"/>
+            <ListView  x:Name="_lstQuestions"   ItemSelected="onItemSelected" >
+                
+                
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="15"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition> 
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding UserEmail}" TextColor="{StaticResource primary}" Font="Small"  LineBreakMode="TailTruncation"></Label>
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding Question}"     TextColor="Black" LineBreakMode="TailTruncation"></Label>
+                                <StackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Orientation="Horizontal">
+                                    <Label   x:Name="_denem"  Text="{Binding Point}" />
+                                    <Button WidthRequest="40" CommandParameter="{Binding Key}" BackgroundColor="{StaticResource primary}" Clicked="OnScoreQuestion"  TextColor="White"  Text="+" />
+                                </StackLayout>
+                               
+                               
+                            </Grid>
+                        </ViewCell>
+
+                       
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+  </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:i18n="clr-namespace:ConferenceApp.Localization; assembly=ConferenceApp"
+             x:Class="ConferenceApp.Views.SignUpPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#00aff0</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10" >
+                <Label HeightRequest="110"  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="{i18n:Translate CreateConference}" 
+                          BackgroundColor="{StaticResource primary}"
+                          TextColor="White" 
+                          FontSize="40" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+
+                <ActivityIndicator Color="{StaticResource primary}" x:Name="_loading" />
+                <StackLayout Orientation="Horizontal" Padding="20,40,20,0">
+                    <Entry HeightRequest="50" 
+                           x:Name="_crName"
+                         HorizontalOptions="FillAndExpand"
+                         Placeholder="{i18n:Translate Name}">
+                        <Entry.Effects>
+
+                        </Entry.Effects>
+                    </Entry>
+
+                    <Entry HeightRequest="50" 
+                                  HorizontalOptions="FillAndExpand"
+                           
+                                  x:Name="_crSurname"
+                                 Placeholder="{i18n:Translate LastName}">
+                        <Entry.Effects>
+
+                        </Entry.Effects>
+                    </Entry>
+                </StackLayout>
+
+                <Entry  Margin="20,0,20,0" 
+                        x:Name="_crEmail"
+                         HeightRequest="50" 
+                         Placeholder="{i18n:Translate Email}">
+                    <Entry.Effects>
+
+                    </Entry.Effects>
+                </Entry>
+
+                <Entry Margin="20,0,20,0" 
+                       x:Name="_ConferenceName"
+                        HeightRequest="50" 
+                        Placeholder="{i18n:Translate ConferenceName}">
+                    <Entry.Effects>
+
+                    </Entry.Effects>
+                </Entry>
+
+                <Button Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         TextColor="White" 
+                         Text="{i18n:Translate Create}"  
+                        Clicked="onConferenceAdd"
+                         BackgroundColor="Gray"
+                         HorizontalOptions="FillAndExpand"/>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

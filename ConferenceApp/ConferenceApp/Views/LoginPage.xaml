@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:ConferenceApp.Localization; assembly=ConferenceApp"
+             x:Class="ConferenceApp.Views.LoginPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#00aff0</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout  Spacing="10" >
+
+
+                <Label HeightRequest="110"  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="{i18n:Translate Conference}" 
+                          BackgroundColor="{StaticResource primary}"
+                          TextColor="White" 
+                          FontSize="40" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+
+                <Label Text="{i18n:Translate JoinConference}" 
+                       FontSize="35"
+                        HorizontalOptions="Center" 
+                        TextColor="{StaticResource primary}"/>
+                <ActivityIndicator Color="{StaticResource primary}" x:Name="_loading" />
+
+                <Entry  Margin="20,40,20,0" 
+                         HeightRequest="50" 
+                        x:Name="_memberEmail"
+                         Placeholder="{i18n:Translate Email}">
+                    <Entry.Effects>
+
+                    </Entry.Effects>
+                </Entry>
+
+                <Entry Margin="20,0,20,0" 
+                        HeightRequest="50" 
+                       x:Name="_conferenceCode"
+                        Placeholder="{i18n:Translate ConferenceCode}">
+                    <Entry.Effects>
+
+                    </Entry.Effects>
+                </Entry>
+
+                <Button Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         TextColor="White" 
+                         Text="{i18n:Translate Join}"  
+                         Clicked="OnJoinConference"
+                         BackgroundColor="{StaticResource primary}"
+                         HorizontalOptions="FillAndExpand"/>
+
+                <Button Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         TextColor="White" 
+                         Clicked="OnCreateConference"
+                        
+                         Text="{i18n:Translate CreateConference}" 
+                         BackgroundColor="Gray"
+                         HorizontalOptions="FillAndExpand"/>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

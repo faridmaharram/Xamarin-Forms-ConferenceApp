@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:i18n="clr-namespace:ConferenceApp.Localization; assembly=ConferenceApp"
+             x:Class="ConferenceApp.Views.QuestionDetail">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">#00aff0</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+
+        <StackLayout>
+
+            <Label HeightRequest="110" 
+                   x:Name="_ConfName"
+                          HorizontalOptions="FillAndExpand" 
+                          Text="{i18n:Translate QuestionDetail}" 
+                          BackgroundColor="{StaticResource primary}"
+                          TextColor="White" 
+                          FontSize="40" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+
+
+
+
+
+
+
+            <Label Text="{i18n:Translate QuestionDetail}" 
+                       FontSize="30"
+                        HorizontalOptions="Center" 
+                        TextColor="{StaticResource primary}"/>
+
+
+
+            <Label x:Name="_UserEmail" Margin="5" FontSize="15" TextColor="{StaticResource primary}" HorizontalOptions="FillAndExpand"></Label>
+            <Label x:Name="_Question" Margin="5" FontSize="20" HorizontalOptions="FillAndExpand"></Label>
+
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>
